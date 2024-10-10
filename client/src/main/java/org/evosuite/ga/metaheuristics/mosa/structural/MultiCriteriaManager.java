@@ -67,6 +67,10 @@ public class MultiCriteriaManager extends StructuralGoalManager implements Seria
 
     private static final Logger logger = LoggerFactory.getLogger(MultiCriteriaManager.class);
 
+    //added by julian to make custom logs
+    private static final Logger evoLogger = LoggingUtils.getEvoLogger();
+
+
     private static final long serialVersionUID = 8161137239404885564L;
 
     protected BranchFitnessGraph graph;
@@ -99,6 +103,9 @@ public class MultiCriteriaManager extends StructuralGoalManager implements Seria
      */
     public MultiCriteriaManager(List<TestFitnessFunction> targets) {
         super(targets);
+
+        evoLogger.info("CUSTOM_LOG|Added custom logging using EvoLogger");
+
 
         // initialize the dependency graph among branches
         this.graph = getControlDependencies4Branches(targets);
